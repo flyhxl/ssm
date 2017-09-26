@@ -143,4 +143,37 @@
 	<build>
 		<finalName>ssm</finalName>
 	</build>
+	<!--<build>-->
+		<!--<finalName>ssm</finalName>-->
+	<!--</build>-->
+	<!--<profiles>-->
+		<!--&lt;!&ndash; 开发环境 &ndash;&gt;-->
+		<!--<profile>-->
+			<!--<id>dev</id>-->
+			<!--<activation>-->
+				<!--<activeByDefault>true</activeByDefault>-->
+			<!--</activation>-->
+			<!--<properties>-->
+				<!--&lt;!&ndash; jdbc configuration &ndash;&gt;-->
+				<!--<mvn.jdbc.driver>com.mysql.jdbc.Driver</mvn.jdbc.driver>-->
+				<!--<mvn.jdbc.url>jdbc:mysql://127.0.0.1:3306/lv?useUnicode=true&amp;characterEncoding=utf8</mvn.jdbc.url>-->
+				<!--<mvn.jdbc.username>root</mvn.jdbc.username>-->
+				<!--<mvn.jdbc.password>123456</mvn.jdbc.password>-->
+			<!--</properties>-->
+		<!--</profile>-->
+
+		<!--&lt;!&ndash; 测试环境 &ndash;&gt;-->
+		<!--<profile>-->
+			<!--<id>product</id>-->
+
+			<!--<properties>-->
+				<!--&lt;!&ndash; jdbc configuration &ndash;&gt;-->
+				<!--<mvn.jdbc.driver>com.mysql.jdbc.Driver</mvn.jdbc.driver>-->
+				<!--<mvn.jdbc.url>jdbc:mysql://127.0.0.1:3306/lv?useUnicode=true&amp;characterEncoding=utf8</mvn.jdbc.url>-->
+				<!--<mvn.jdbc.username>root</mvn.jdbc.username>-->
+				<!--<mvn.jdbc.password>liebian.!@#.com</mvn.jdbc.password>-->
+
+			<!--</properties>-->
+		<!--</profile>-->
+	<!--</profiles>-->
 </project>

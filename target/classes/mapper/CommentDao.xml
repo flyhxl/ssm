@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liebian.lvyou.dao.CommentDao">
+    <resultMap id="BaseResultMap" type="com.liebian.lvyou.entity.Comment">
+        <id column="comment_id" jdbcType="BIGINT" property="commentId"/>
+        <result column="wx_openid" jdbcType="VARCHAR" property="wxOpenid"/>
+        <result column="wx_username" jdbcType="VARCHAR" property="wxUsername"/>
+        <result column="wx_headimage" jdbcType="VARCHAR" property="wxHeadimage"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="score" jdbcType="INTEGER" property="score"/>
+        <result column="addtime" jdbcType="INTEGER" property="addtime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="vendor_id" jdbcType="BIGINT" property="vendorid"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    comment_id, wx_openid, wx_username, wx_headimage, content, score, addtime, status,vendor_id
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where comment_id = #{commentId,jdbcType=BIGINT}
+    </select>
+
+    <update id="updateByPrimaryKey" parameterType="com.liebian.lvyou.entity.Comment">
+    update comment
+    set wx_openid = #{wxOpenid,jdbcType=VARCHAR},
+      wx_username = #{wxUsername,jdbcType=VARCHAR},
+      wx_headimage = #{wxHeadimage,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER}
+      vendor_id = #{vendor_id,jdbcType=INTEGER}
+    where comment_id = #{commentId,jdbcType=BIGINT}
+  </update>
+
+    <select id="getALl" resultType="Comment">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+    </select>
+    <select id="getAllByVendor" resultType="Comment">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where vendor_id=#{vendor_id_test,jdbcType=INTEGER} and status=#{status,jdbcType=INTEGER}
+        ORDER  by comment_id DESC
+    </select>
+    <insert id="insert" parameterType="Comment">
+        <selectKey keyProperty="commentId" order="AFTER" resultType="java.lang.Long">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into comment (wx_openid, wx_username, wx_headimage,
+        content, score, addtime,
+        status, vendor_id)
+        values (#{wxOpenid,jdbcType=VARCHAR}, #{wxUsername,jdbcType=VARCHAR}, #{wxHeadimage,jdbcType=VARCHAR},
+        #{content,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER},
+        #{status,jdbcType=INTEGER}, #{vendorId,jdbcType=INTEGER})
+    </insert>
+</mapper>
