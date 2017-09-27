@@ -51,7 +51,7 @@ insert into vendor (name,address,address_point_x,address_point_y,logo,sale_perca
 values('人民公社','丰台大门正对面',12.22,14.55,'a.jpg',50,'火锅,炒菜',0,1233,'周一至周五 11:00-02:00 周六,周日 10:00-02:00');
 
 --alter table comment add column `business_hours` int comment '营业时间';
-create table vendor_recommend
+create table vendorrecommend
 (
 vendor_recommend_id bigint(20) NOT NULL AUTO_INCREMENT COMMENT '商家推荐ID',
 vendor_id bigint(20) COMMENT '商家ID',
@@ -91,11 +91,11 @@ status int comment '状态',
 roleid int   COMMENT '角色id',
 addtime int COMMENT '添加时间',
 PRIMARY KEY (userid)
-)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='用户表';
+)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='管理员用户表';
 
 
 
-insert into adminuser (login_name,login_password,status,roleid,addtime) values('admin','027',0,1,123);
+insert into adminuser (login_name,login_password,status,roleid,addtime) values('liebian','liebian@yujian',0,1,123);
 
 
 --lv项目创建表结束
