@@ -82,4 +82,20 @@ insert into comment (wx_openid,wx_username,wx_headimage,content,score,addtime,st
 values('wqeqrqrqtqtqee','溪水','b.jpg','这家真的很好吃哦',5,1232,0,2);
 
 
+create table adminuser
+(
+userid bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户id',
+login_name varchar(50) COMMENT '账号',
+login_password varchar(50) COMMENT '密码',
+status int comment '状态',
+roleid int   COMMENT '角色id',
+addtime int COMMENT '添加时间',
+PRIMARY KEY (userid)
+)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+
+
+insert into adminuser (login_name,login_password,status,roleid,addtime) values('admin','027',0,1,123);
+
+
 --lv项目创建表结束

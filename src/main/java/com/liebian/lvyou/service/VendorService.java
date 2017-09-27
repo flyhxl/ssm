@@ -26,5 +26,5 @@ public interface VendorService {
      */
     List<Vendor> getList();
 
-
+    int insert(Vendor r);
 }

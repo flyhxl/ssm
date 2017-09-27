@@ -40,4 +40,12 @@ public class VendorServiceImpl implements VendorService {
 
         return vendorDao.getList();
     }
+
+    @Override
+    public int insert(Vendor r)
+    {
+        return vendorDao.insert(r);
+    }
+
+
 }

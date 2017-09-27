@@ -119,8 +119,7 @@
         <div class="info-list link-list" data-ktv="false">
 
             <div>
-                <a class="item " href="tel:02163860140"
-                   onclick="LXAnalytics(&#39;moduleClick&#39;, valBid, {custom:{module:&#39;shopinfo_tel&#39;,shopid:&#39;67519205&#39;}})">
+                <a class="item " href="tel:02163860140">
                     <i class="icon-call"></i>02163860140
                     <i class="arrowent"></i>
                 </a>

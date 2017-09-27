@@ -14,4 +14,6 @@ public interface VendorDao {
     Vendor selectByPrimaryKey(Long vendor_id);
 
     int updateByPrimaryKey(Vendor record);
+
+
 }

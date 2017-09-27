@@ -60,22 +60,7 @@ public class LvYouController {
         return "list";// WEB-INF/jsp/"list".jsp
     }
 
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    private String detail(Model model) {
-        //List<Book> list = bookService.getList();
-        //model.addAttribute("list", list);
 
-        List<Vendor> v_list = vendorService.getList();
-        model.addAttribute("v_list", v_list);
-
-        List<Comment> c_list = commentService.getALl();
-        model.addAttribute("c_list", c_list);
-
-        List<Comment> d_list = commentService.getAllByVendor(2L, 0);
-        model.addAttribute("d_list", d_list);
-        // list.jsp + model = ModelAndView
-        return "detail";// WEB-INF/jsp/"list".jsp
-    }
 
 
     @RequestMapping(value = "/detail/{vendor_id}.html", method = RequestMethod.GET)

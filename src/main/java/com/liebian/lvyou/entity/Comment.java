@@ -123,56 +123,5 @@ public class Comment implements Serializable {
         this.addtime = addtime;
     }
 
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        Comment other = (Comment) that;
-        return (this.getCommentId() == null ? other.getCommentId() == null : this.getCommentId().equals(other.getCommentId()))
-            && (this.getWxOpenid() == null ? other.getWxOpenid() == null : this.getWxOpenid().equals(other.getWxOpenid()))
-            && (this.getWxUsername() == null ? other.getWxUsername() == null : this.getWxUsername().equals(other.getWxUsername()))
-            && (this.getWxHeadimage() == null ? other.getWxHeadimage() == null : this.getWxHeadimage().equals(other.getWxHeadimage()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
-            && (this.getScore() == null ? other.getScore() == null : this.getScore().equals(other.getScore()))
-            && (this.getAddtime() == null ? other.getAddtime() == null : this.getAddtime().equals(other.getAddtime()));
-    }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getCommentId() == null) ? 0 : getCommentId().hashCode());
-        result = prime * result + ((getWxOpenid() == null) ? 0 : getWxOpenid().hashCode());
-        result = prime * result + ((getWxUsername() == null) ? 0 : getWxUsername().hashCode());
-        result = prime * result + ((getWxHeadimage() == null) ? 0 : getWxHeadimage().hashCode());
-        result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
-        result = prime * result + ((getScore() == null) ? 0 : getScore().hashCode());
-        result = prime * result + ((getAddtime() == null) ? 0 : getAddtime().hashCode());
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", commentId=").append(commentId);
-        sb.append(", wxOpenid=").append(wxOpenid);
-        sb.append(", wxUsername=").append(wxUsername);
-        sb.append(", wxHeadimage=").append(wxHeadimage);
-        sb.append(", content=").append(content);
-        sb.append(", score=").append(score);
-        sb.append(", addtime=").append(addtime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
 }
