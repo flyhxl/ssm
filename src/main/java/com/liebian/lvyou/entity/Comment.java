@@ -40,7 +40,7 @@ public class Comment implements Serializable {
     /**
      * 留言时间
      */
-    private Integer addtime;
+    private Long addtime;
     /**
      * 留言状态
      */
@@ -115,13 +115,21 @@ public class Comment implements Serializable {
         this.score = score;
     }
 
-    public Integer getAddtime() {
+    public Long getAddtime() {
         return addtime;
     }
 
-    public void setAddtime(Integer addtime) {
+    public void setAddtime(Long addtime) {
         this.addtime = addtime;
     }
 
 
+    private String  timeStr;
+    public String getTimeStr() {
+        return timeStr;
+    }
+
+    public void setTimeStr(String str) {
+        this.timeStr = str;
+    }
 }

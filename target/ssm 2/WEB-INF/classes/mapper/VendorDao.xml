@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liebian.lvyou.dao.VendorDao">
+  <resultMap id="BaseResultMap" type="com.liebian.lvyou.entity.Vendor">
+    <id column="vendor_id" jdbcType="BIGINT" property="vendor_id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="address_point_x" jdbcType="REAL" property="address_point_x" />
+    <result column="address_point_y" jdbcType="REAL" property="address_point_y" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="sale_percapitaprice" jdbcType="INTEGER" property="sale_percapitaprice" />
+    <result column="sale_cookingstyle" jdbcType="VARCHAR" property="sale_cookingstyle" />
+    <result column="sell_userid" jdbcType="INTEGER" property="sell_userid" />
+    <result column="addtime" jdbcType="INTEGER" property="addtime" />
+    <result column="business_hours" jdbcType="VARCHAR" property="business_hours" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    vendor_id, name, address, address_point_x, address_point_y, logo, sale_percapitaprice, 
+    sale_cookingstyle, sell_userid, addtime,business_hours
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="Vendor">
+    select 
+    <include refid="Base_Column_List" />
+    from vendor
+    where vendor_id = #{vendor_id,jdbcType=BIGINT}
+  </select>
+
+  <select id="getList" resultType="Vendor">
+    select
+    <include refid="Base_Column_List" />
+    from vendor
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from vendor
+    where vendor_id = #{vendor_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.liebian.lvyou.entity.Vendor" useGeneratedKeys="true" keyProperty="vendor_id" >
+    insert into vendor (name, address, address_point_x, 
+      address_point_y, logo, sale_percapitaprice, 
+      sale_cookingstyle, sell_userid, addtime,business_hours
+      )
+    values (#{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{address_point_x,jdbcType=REAL}, 
+      #{address_point_y,jdbcType=REAL}, #{logo,jdbcType=VARCHAR}, #{sale_percapitaprice,jdbcType=INTEGER}, 
+      #{sale_cookingstyle,jdbcType=VARCHAR}, #{sell_userid,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}
+    , #{business_hours,jdbcType=VARCHAR}
+      )
+  </insert>
+
+
+  <update id="updateByPrimaryKey" >
+    update vendor
+    set name = #{name,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      address_point_x = #{address_point_x,jdbcType=REAL},
+      address_point_y = #{address_point_y,jdbcType=REAL},
+      logo = #{logo,jdbcType=VARCHAR},
+      sale_percapitaprice = #{sale_percapitaprice,jdbcType=INTEGER},
+      sale_cookingstyle = #{sale_cookingstyle,jdbcType=VARCHAR},
+      sell_userid = #{sell_userid,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+       business_hours = #{business_hours,jdbcType=VARCHAR}
+    where vendor_id = #{vendor_id,jdbcType=BIGINT}
+  </update>
+</mapper>

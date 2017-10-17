@@ -7,9 +7,11 @@ public interface VendorDao {
 
     int deleteByPrimaryKey(Long vendor_id);
 
-    int insert(Vendor record);
+    Long insert(Vendor record);
 
     List<Vendor> getList();
+
+    List<Vendor> getListByType(int type);
 
     Vendor selectByPrimaryKey(Long vendor_id);
 

@@ -58,9 +58,13 @@ vendor_id bigint(20) COMMENT '商家ID',
 title varchar(255) COMMENT '推荐标题',
 content varchar(1000) COMMENT '推荐内容',
 pic varchar(255) COMMENT '推荐照片',
-addtime int,
+pic_position INT   COMMENT '推荐照片1 店铺介绍 2:菜介绍',
+addtime INT ,
 PRIMARY KEY (vendor_recommend_id)
 )ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='商家推荐表';
+insert into vendorrecommend (vendor_id,title,content,pic,addtime,pic_position) values(1000,'很好吃','菜很香甜','eee.jpg',123,0);
+
+
 
 create table comment
 (
@@ -70,7 +74,7 @@ wx_username varchar(100) COMMENT '微信用户名',
 wx_headimage varchar(200) COMMENT '微信用户头像',
 content varchar(2000) COMMENT '留言内容',
 score int COMMENT '评分',
-addtime int COMMENT '留言时间',
+addtime bigint(20) COMMENT '留言时间',
 status int comment '状态',
 vendor_id bigint(20)   COMMENT '商家ID',
 PRIMARY KEY (comment_id)
@@ -97,5 +101,9 @@ PRIMARY KEY (userid)
 
 insert into adminuser (login_name,login_password,status,roleid,addtime) values('liebian','liebian@yujian',0,1,123);
 
+--图片说明
+--商家图片都放在vendor下面
+--/resources/images/vendor/${Vendorrecommend.pic}
 
 --lv项目创建表结束
+

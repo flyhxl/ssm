@@ -26,5 +26,16 @@ public interface VendorService {
      */
     List<Vendor> getList();
 
-    int insert(Vendor r);
+
+    /**
+     * 查询所有
+     *
+     * @return
+     */
+    List<Vendor> getListByType(int shoptype);
+
+
+
+
+    Long insert(Vendor r);
 }

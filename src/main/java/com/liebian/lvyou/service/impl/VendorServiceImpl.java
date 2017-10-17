@@ -42,7 +42,12 @@ public class VendorServiceImpl implements VendorService {
     }
 
     @Override
-    public int insert(Vendor r)
+    public List<Vendor> getListByType(int shoptype) {
+        return vendorDao.getListByType(shoptype);
+    }
+
+    @Override
+    public Long insert(Vendor r)
     {
         return vendorDao.insert(r);
     }

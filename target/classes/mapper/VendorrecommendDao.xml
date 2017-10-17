@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liebian.lvyou.dao.VendorrecommendDao">
+  <resultMap id="BaseResultMap" type="com.liebian.lvyou.entity.Vendorrecommend">
+    <id column="vendor_recommend_id" jdbcType="BIGINT" property="vendorRecommendId" />
+    <result column="vendor_id" jdbcType="BIGINT" property="vendorId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="addtime" jdbcType="BIGINT" property="addtime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    vendor_recommend_id, vendor_id, title, content, pic, addtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from vendorrecommend
+    where vendor_recommend_id = #{vendorRecommendId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.liebian.lvyou.entity.Vendorrecommend"  useGeneratedKeys="true" keyProperty="vendor_recommend_id">
+
+    insert into vendorrecommend (vendor_id, title, content, 
+      pic, addtime,pic_position)
+    values (#{vendorId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=VARCHAR}, #{addtime,jdbcType=BIGINT},#{pic_position,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.liebian.lvyou.entity.Vendorrecommend">
+    update vendorrecommend
+    set vendor_id = #{vendorId,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      addtime = #{addtime,jdbcType=BIGINT}
+    where vendor_recommend_id = #{vendorRecommendId,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="getListByVendor" resultType="com.liebian.lvyou.entity.Vendorrecommend">
+    select
+    <include refid="Base_Column_List" />
+    from vendorrecommend
+    where vendor_id = #{vendor_id,jdbcType=BIGINT}
+    and pic_position=#{pic_position,jdbcType=INTEGER}
+
+  </select>
+</mapper>

@@ -56,7 +56,7 @@ public class Vendor implements Serializable {
     /**
      * 录入时间
      */
-    private Integer addtime;
+    private Long addtime;
 
 
     /**
@@ -64,8 +64,40 @@ public class Vendor implements Serializable {
      */
     private String business_hours;
 
+    /**
+     * 商户类型1:餐饮 2：景点
+     */
+    private int shop_type;
+
+
+
+    /**
+     * 商户类型0:删除 1：正常
+     */
+    private int status;
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+
 
     private static final long serialVersionUID = 1L;
+
+    public int getShoptype() {
+        return shop_type;
+    }
+
+    public void setShoptype(int shoptype) {
+        this.shop_type = shoptype;
+    }
+
+
+
+
 
     public String getBusinesshours() {
         return business_hours;
@@ -154,11 +186,11 @@ public class Vendor implements Serializable {
         this.sell_userid = sell_userid;
     }
 
-    public Integer getAddtime() {
+    public Long getAddtime() {
         return addtime;
     }
 
-    public void setAddtime(Integer addtime) {
+    public void setAddtime(Long addtime) {
         this.addtime = addtime;
     }
 
